@@ -18,7 +18,7 @@ def OpenAcc():
     print("Data Entered Succesfully")
     main()
 def DepoAmo():
-    amount=input("Enter the amount you want to deposit: ")
+    amount=int(input("Enter the amount you want to deposit: "))
     ac=input("Enter The Account No: ")
     a='select balance from amount where AccNo=%s'
     data=(ac,)
@@ -26,13 +26,13 @@ def DepoAmo():
     x.execute(a,data)
     result=x.fetchone()
     t=result[0]+amount
-    sql=('update amount set balance where AccNo=%s')
+    sql=('update amount set balance=%s where AccNo=%s')
     d=(t,ac)
     x.execute(sql,d)
     mydb.commit() #save the changes
     main()
 def WithdrawAmount():
-    amount=input("Enter the amount you want to withdraw: ")
+    amount=int(input("Enter the amount you want to withdraw: "))
     ac=input("Enter The Account No: ")
     a='select balance from amount where AccNo=%s'
     data=(ac,)
@@ -40,7 +40,7 @@ def WithdrawAmount():
     x.execute(a,data)
     result=x.fetchone()
     t=result[0]-amount
-    sql=('update amount set balance where AccNo=%s')
+    sql=('update amount set balance=%s where AccNo=%s')
     d=(t,ac)
     x.execute(sql,d)
     mydb.commit() #save the changes

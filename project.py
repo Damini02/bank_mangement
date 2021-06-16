@@ -30,6 +30,7 @@ def DepoAmo():
     d=(t,ac)
     x.execute(sql,d)
     mydb.commit() #save the changes
+    print("Amount Deposited Succesfully")
     main()
 def WithdrawAmount():
     amount=int(input("Enter the amount you want to withdraw: "))
@@ -44,6 +45,7 @@ def WithdrawAmount():
     d=(t,ac)
     x.execute(sql,d)
     mydb.commit() #save the changes
+    print("Amount Withdrawed Succesfully")
     main() 
 def BalEnq():
     ac=input("Enter the account no: ")
@@ -61,8 +63,22 @@ def DisDetails():
     x=mydb.cursor()
     x.execute(a,data)
     result=x.fetchone()
+    print("Displaying customer details: ")
+    co=1
     for i in result:
-        print(i)
+        if(co==1):
+            print("Account Holder Name: ",i)
+        elif(co==2):
+            print("Account Number: ",i)
+        elif(co==3):
+            print("DOB: ",i)   
+        elif(co==4):
+            print("Address: ",i)
+        elif(co==5):
+            print("Phone Number: ",i) 
+        else:
+            print("Account Balance: ",i)
+        co=co+1
     main()
 def CloseAcc():
     ac=input("Enter the account no: ")
@@ -73,8 +89,10 @@ def CloseAcc():
     x.execute(sql1,data)
     x.execute(sql2,data)
     mydb.commit()
+    print("Account Closed Successfully")
     main()
 def main():
+    print("*"*50)
     print('''
              1.OPEN NEW ACCOUNT
              2.DEPOSITE AMOUNT

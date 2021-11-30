@@ -95,7 +95,7 @@ def main():
     print("*"*50)
     print('''
              1.OPEN NEW ACCOUNT
-             2.DEPOSITE AMOUNT
+             2.DEPOSIT AMOUNT
              3.WITHDRAW AMOUNT
              4.BALANCE ENQUIRY
              5.DISPLAY CUSTOMER DETAILS
